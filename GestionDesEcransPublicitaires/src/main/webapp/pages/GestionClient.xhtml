@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="../templates/temp.xhtml">
+
+	<ui:define name="body">
+<h:form id="form">
+             
+    <p:growl id="msgs" life="2000" />
+    <h3>Liste des fourisseurs</h3>
+    <p:tabView dynamic="true" cache="true" >
+        <p:tab title="Clients valides" id="tab1">
+            <h:panelGrid columns="2" cellpadding="10">
+				<p:dataTable var="clientv" value="#{clientBean.listClientsv}" emptyMessage="pas de fournisseurs" >
+    				<p:column headerText="Nom">
+        				<h:outputText value="#{clientv.nom}" />
+   					</p:column>
+ 
+   					<p:column headerText="Prenom">
+        				<h:outputText value="#{clientv.prenom}" />
+    				</p:column>
+ 
+    				<p:column headerText="Adresse">
+        				<h:outputText value="#{clientv.adresse}" />
+    				</p:column>
+ 
+    				<p:column headerText="Email">
+        				<h:outputText value="#{clientv.email}" />
+    				</p:column>
+    				<p:column headerText="Telephone">
+        				<h:outputText value="#{clientv.tel}" />
+    				</p:column>
+    				<p:column headerText="Telephone2">
+        				<h:outputText value="#{clientc.tel2}" />
+    				</p:column>
+    				<p:column headerText="Raison Social">
+        				<h:outputText value="#{clientv.raisonSocial}" />
+    				</p:column>
+    				<p:column headerText="Fax">
+        				<h:outputText value="#{clientv.fax}" />
+    				</p:column>
+    				<p:column headerText="CIN">
+        				<h:outputText value="#{clientv.cin}" />
+    				</p:column>
+    				<p:column headerText="Ville">
+        				<h:outputText value="#{clientv.ville}" />
+    				</p:column>    				    				    				    				    				
+
+				</p:dataTable>
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="Clients invalides" id="tab2" >
+            <h:panelGrid columns="2" cellpadding="10">
+<p:dataTable var="clientinv" value="#{clientBean.listClientsinv}" emptyMessage="pas de fournisseurs">
+    				<p:column headerText="Nom">
+        				<h:outputText value="#{clientinv.nom}" />
+   					</p:column>
+ 
+   					<p:column headerText="Prenom">
+        				<h:outputText value="#{clientinv.prenom}" />
+    				</p:column>
+ 
+    				<p:column headerText="Adresse">
+        				<h:outputText value="#{clientinv.adresse}" />
+    				</p:column>
+ 
+    				<p:column headerText="Email">
+        				<h:outputText value="#{clientinv.email}" />
+    				</p:column>
+    				<p:column headerText="Telephone">
+        				<h:outputText value="#{clientinv.tel}" />
+    				</p:column>
+    				<p:column headerText="Telephone2">
+        				<h:outputText value="#{clientinv.tel2}" />
+    				</p:column>
+    				<p:column headerText="Raison Social">
+        				<h:outputText value="#{clientinv.raisonSocial}" />
+    				</p:column>
+    				<p:column headerText="Fax">
+        				<h:outputText value="#{clientinv.fax}" />
+    				</p:column>
+    				<p:column headerText="CIN">
+        				<h:outputText value="#{clientinv.cin}" />
+    				</p:column>
+    				<p:column headerText="Ville">
+        				<h:outputText value="#{clientinv.ville}" />
+    				</p:column>    				    				    				    				    				
+
+				</p:dataTable>
+
+            </h:panelGrid>
+        </p:tab>
+
+    </p:tabView>
+    </h:form>
+    </ui:define>
+    </ui:composition>
+    </html>

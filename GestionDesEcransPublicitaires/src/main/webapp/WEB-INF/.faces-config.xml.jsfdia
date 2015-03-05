@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#pages#connect.xhtml"
+  PATH="/pages/connect.xhtml" SHAPE="48,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#connect.xhtml:0" NAME="item"
+   PATH="/pages/connect.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="accepted:#{connectBean.connecter}:#pages#listeUtilisateur.xhtml"
+    NAME="output" PATH="/pages/listeUtilisateur.xhtml"
+    TARGET="rules:#pages#listeUtilisateur.xhtml"
+    TITLE="#{connectBean.connecter}:accepted" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="rejected:#{connectBean.connecter}:#pages#connect.xhtml"
+    NAME="output1" PATH="/pages/connect.xhtml"
+    TARGET="rules:#pages#connect.xhtml"
+    TITLE="#{connectBean.connecter}:rejected" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="error::#pages#error.xhtml" NAME="output2"
+    PATH="/pages/error.xhtml" TARGET="rules:#pages#error.xhtml"
+    TITLE="error" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="login::#pages#connect.xhtml" NAME="output3"
+    PATH="/pages/connect.xhtml" TARGET="rules:#pages#connect.xhtml"
+    TITLE="login" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:" SHAPE="32,337,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::0" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="scannerReseau::#pages#scannerReseau.xhtml"
+    NAME="output" PATH="/pages/scannerReseau.xhtml"
+    TARGET="rules:#pages#scannerReseau.xhtml" TITLE="scannerReseau" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#listePort.xhtml"
+  PATH="/pages/listePort.xhtml" SHAPE="272,465,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#listePort.xhtml:0" NAME="item"
+   PATH="/pages/listePort.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="modifp:#{portBean.modifier(p)}:#pages#modifierPort.xhtml"
+    NAME="output" PATH="/pages/modifierPort.xhtml"
+    TARGET="rules:#pages#modifierPort.xhtml"
+    TITLE="#{portBean.modifier(p)}:modifp" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#ajoutPort.xhtml"
+  PATH="/pages/ajoutPort.xhtml" SHAPE="32,449,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#ajoutPort.xhtml:0" NAME="item"
+   PATH="/pages/ajoutPort.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="portajoute:#{portBean.ajouter}:#pages#listePort.xhtml"
+    NAME="output" PATH="/pages/listePort.xhtml"
+    TARGET="rules:#pages#listePort.xhtml"
+    TITLE="#{portBean.ajouter}:portajoute" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#modifierPort.xhtml"
+  PATH="/pages/modifierPort.xhtml" SHAPE="32,561,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#modifierPort.xhtml:0" NAME="item"
+   PATH="/pages/modifierPort.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="pmodifie:#{portBean.modification}:#pages#listePort.xhtml"
+    NAME="output" PATH="/pages/listePort.xhtml"
+    TARGET="rules:#pages#listePort.xhtml"
+    TITLE="#{portBean.modification}:pmodifie" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="retour:#{portBean.annuler}:#pages#listePort.xhtml"
+    NAME="output1" PATH="/pages/listePort.xhtml"
+    TARGET="rules:#pages#listePort.xhtml"
+    TITLE="#{portBean.annuler}:retour" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#listeUtilisateur.xhtml"
+  PATH="/pages/listeUtilisateur.xhtml" SHAPE="304,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#listeUtilisateur.xhtml:0" NAME="item"
+   PATH="/pages/listeUtilisateur.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="modif:#{utilisateurBean.modifier(use)}:#pages#modifierUtilisateur.xhtml"
+    NAME="output" PATH="/pages/modifierUtilisateur.xhtml"
+    TARGET="rules:#pages#modifierUtilisateur.xhtml"
+    TITLE="#{utilisateurBean.modifier(use)}:modif" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#ajouterUtilisateur.xhtml"
+  PATH="/pages/ajouterUtilisateur.xhtml" SHAPE="48,225,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#ajouterUtilisateur.xhtml:0" NAME="item"
+   PATH="/pages/ajouterUtilisateur.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="ajoute:#{utilisateurBean.ajouter}:#pages#listeUtilisateur.xhtml"
+    NAME="output" PATH="/pages/listeUtilisateur.xhtml"
+    TARGET="rules:#pages#listeUtilisateur.xhtml"
+    TITLE="#{utilisateurBean.ajouter}:ajoute" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#modifierUtilisateur.xhtml"
+  PATH="/pages/modifierUtilisateur.xhtml" SHAPE="512,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#modifierUtilisateur.xhtml:0"
+   NAME="item" PATH="/pages/modifierUtilisateur.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="modifie:#{utilisateurBean.modification}:#pages#listeUtilisateur.xhtml"
+    NAME="output" PATH="/pages/listeUtilisateur.xhtml"
+    TARGET="rules:#pages#listeUtilisateur.xhtml"
+    TITLE="#{utilisateurBean.modification}:modifie" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#scannerReseau.xhtml"
+  PATH="/pages/scannerReseau.xhtml" SHAPE="240,353,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#error.xhtml" PATH="/pages/error.xhtml"
+  SHAPE="344,184,50,25" model-entity="JSFProcessGroup"/>
+</PROCESS>

@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="../templates/temp.xhtml">
+
+
+	<ui:define name="body">
+	
+<h:form id="f1">
+                 
+    <p:growl id="growl" sticky="true" showDetail="true"/>
+ 
+    <p:tabView>
+        <p:tab id="personnel" title="personnel"  >
+                <p:messages />
+                <h:panelGrid columns="2" >
+                    <h:outputText value="Nom: *" />
+                    <p:inputText value="#{clientBean.nom}"  label="nom"/>
+ 
+                    <h:outputText value="Prenom: *" />
+                    <p:inputText value="#{clientBean.prenom}"  label="prenom"/>
+                    <h:outputText value="CIN: *" />
+                    <p:inputText value="#{clientBean.cin}"  label="cin"/>
+ 					<h:outputText value="Raison Social: *" />
+                    <p:inputText value="#{clientBean.raisonSocial}"  label="raisonSocial"/>
+         
+ 
+                    
+                </h:panelGrid>
+        </p:tab>
+ 
+        <p:tab id="Adresse" title="Adresse">
+                <p:messages />
+                <h:panelGrid columns="2" >
+                    <h:outputText value="Rue: " />
+                    <p:inputText value="#{clientBean.rue}" />
+ 
+                    <h:outputText value="Ville: " />
+                    <p:inputText value="#{clientBean.ville}" />
+ 
+                </h:panelGrid>
+        </p:tab>
+ 
+        <p:tab id="contact" title="Contact">
+                <p:messages />
+                <h:panelGrid columns="2">
+                    <h:outputText value="Email: *" />
+                    <p:inputText value="#{clientBean.email}"  label="Email"/>
+ 
+                    <h:outputText value="Tel: " />
+                    <p:inputText value="#{clientBean.tel}"/>
+ 
+                    <h:outputText value="Second Tel2: " />
+                    <p:inputText value="#{clientBean.tel2}"/>
+                </h:panelGrid>
+        </p:tab>
+ 
+        
+</p:tabView> 
+ <p:commandButton value="Valider" actionListener="#{clientBean.ajouter}" update=":f1:growl" /></h:form>
+</ui:define>
+</ui:composition>
+</html>

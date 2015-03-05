@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="../templates/temp.xhtml">
+
+	<ui:define name="body">
+		<div align="center">
+			<p:fieldset legend="Ajout Utilisateur" id="fieldajout"
+				style="width:50%;FONT-SIZE: small;">
+				<br />
+				<h:form id="formgestionid" style="FONT-SIZE: small;">
+					<h:panelGrid columns="3">
+
+
+						<h:outputLabel value="N° CIN : ">
+							<h:outputLabel style="FONT-SIZE: small; color: red;">*</h:outputLabel>
+						</h:outputLabel>
+						<h:inputText value="#{utilisateurBean.cin}" id="cinid" />
+						<h:outputLabel>
+							<h:message for="cinid"
+								style="FONT-SIZE: small;FONT-STYLE: italic; color: red;" />
+						</h:outputLabel>
+
+						<h:outputLabel value="Nom : "></h:outputLabel>
+						<h:inputText value="#{utilisateurBean.nom}" />
+						<h:outputLabel>
+							<br />
+						</h:outputLabel>
+
+						<h:outputLabel value="Prénom :"></h:outputLabel>
+						<h:inputText value="#{utilisateurBean.prenom}" />
+						<h:outputLabel>
+							<br />
+						</h:outputLabel>
+
+						<h:outputLabel value="Login : ">
+							<h:outputLabel style="FONT-SIZE: small; color: red;">*</h:outputLabel>
+						</h:outputLabel>
+						<h:inputText value="#{utilisateurBean.login}" id="loginid" />
+						<h:outputLabel>
+							<h:message for="loginid"
+								style="FONT-SIZE: small;FONT-STYLE: italic; color: red;" />
+						</h:outputLabel>
+
+						<h:outputLabel value="Mot De Passe : ">
+							<h:outputLabel style="FONT-SIZE: small; color: red;">*</h:outputLabel>
+						</h:outputLabel>
+						<h:inputText value="#{utilisateurBean.mdp}" id="motpid" />
+						<h:outputLabel>
+							<h:message for="motpid"
+								style="FONT-SIZE: small;FONT-STYLE: italic; color: red;" />
+						</h:outputLabel>
+
+						<h:outputLabel value="E-mail : "></h:outputLabel>
+						<h:inputText value="#{utilisateurBean.email}" />
+						<h:outputLabel>
+							<br />
+						</h:outputLabel>
+
+						<h:outputLabel value="Téléphone : "></h:outputLabel>
+						<h:inputText value="#{utilisateurBean.tel}" />
+						<h:outputLabel>
+							<br />
+						</h:outputLabel>
+
+						<h:outputLabel value="Adresse :"></h:outputLabel>
+						<h:inputText value="#{utilisateurBean.adresse}" />
+						<h:outputLabel>
+							<br />
+						</h:outputLabel>
+
+
+						<h:outputLabel value="Type :"></h:outputLabel>
+						<h:selectOneMenu id="type" value="#{utilisateurBean.type}"
+							style="width : 144px; height : 23px;">
+							<f:selectItem itemValue="Superviseur" itemLabel="Superviseur" />
+							<f:selectItem itemValue="Administrateur"
+								itemLabel="Administrateur" />
+						</h:selectOneMenu>
+
+						<h:outputLabel>
+							<br />
+						</h:outputLabel>
+						<h:outputLabel>
+							<br />
+						</h:outputLabel>
+						<h:outputLabel>
+							<br />
+						</h:outputLabel>
+						<h:outputLabel>
+							<br />
+						</h:outputLabel>
+						<p:commandButton value="Modifier" action="GestionUtilisateur" 
+							actionListener="#{utilisateurBean.modification}" />
+						<p:commandButton value="Annuler"  action="GestionUtilisateur" />
+
+					</h:panelGrid>
+				</h:form>
+			</p:fieldset>
+		</div>
+
+	</ui:define>
+
+</ui:composition>
+</html>

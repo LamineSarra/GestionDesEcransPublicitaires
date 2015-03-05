@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+ 
+ 
+ 
+ <navigation-rule>
+  <from-view-id>/pages/connect.xhtml</from-view-id>
+ 
+  <navigation-case>
+   	<from-action>#{connectBean.connecter}</from-action>
+			<from-outcome>accepted</from-outcome>
+			<to-view-id>/pages/listeUtilisateur.xhtml</to-view-id>
+		
+  </navigation-case>
+  
+  <navigation-case>
+   	<from-action>#{connectBean.connecter}</from-action>
+			<from-outcome>rejected</from-outcome>
+			<to-view-id>/pages/connect.xhtml</to-view-id>
+		
+  </navigation-case>
+    
+  <navigation-case>
+   <from-outcome>error</from-outcome>
+   <to-view-id>/pages/error.xhtml</to-view-id>
+  </navigation-case>
+  
+  <navigation-case>
+   <from-outcome>login</from-outcome>
+   <to-view-id>/pages/connect.xhtml</to-view-id>
+  </navigation-case>
+  
+  
+   
+ </navigation-rule>
+ 
+ 
+ <navigation-rule>
+  <navigation-case>
+   <from-outcome>scannerReseau</from-outcome>
+   <to-view-id>/pages/scannerReseau.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ 
+ 
+ <navigation-rule>
+		
+		<from-view-id>/pages/listePort.xhtml</from-view-id>
+		
+		<navigation-case>
+			<from-action>#{portBean.modifier(p)}</from-action>
+			<from-outcome>modifp</from-outcome>
+			<to-view-id>/pages/modifierPort.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+ 
+ 
+ <navigation-rule>
+		
+		<from-view-id>/pages/ajoutPort.xhtml</from-view-id>
+		
+		<navigation-case>
+			<from-action>#{portBean.ajouter}</from-action>
+			<from-outcome>portajoute</from-outcome>
+			<to-view-id>/pages/listePort.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	
+	<navigation-rule>
+		
+		<from-view-id>/pages/modifierPort.xhtml</from-view-id>
+		
+		<navigation-case>
+			<from-action>#{portBean.modification}</from-action>
+			<from-outcome>pmodifie</from-outcome>
+			<to-view-id>/pages/listePort.xhtml</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-action>#{portBean.annuler}</from-action>
+			<from-outcome>retour</from-outcome>
+			<to-view-id>/pages/listePort.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+ 
+ <navigation-rule>
+		
+		<from-view-id>/pages/listeUtilisateur.xhtml</from-view-id>
+		
+		<navigation-case>
+			<from-action>#{utilisateurBean.modifier(use)}</from-action>
+			<from-outcome>modif</from-outcome>
+			<to-view-id>/pages/modifierUtilisateur.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	
+<navigation-rule>
+		
+		<from-view-id>/pages/ajouterUtilisateur.xhtml</from-view-id>
+		
+		<navigation-case>
+			<from-action>#{utilisateurBean.ajouter}</from-action>
+			<from-outcome>ajoute</from-outcome>
+			<to-view-id>/pages/GestionUtilisateur.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>	
+
+<navigation-rule>
+		
+		<from-view-id>/pages/modifierUtilisateur.xhtml</from-view-id>
+		
+		<navigation-case>
+			<from-action>#{utilisateurBean.modification}</from-action>
+			<from-outcome>modifie</from-outcome>
+			<to-view-id>/pages/listeUtilisateur.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>	
+	<navigation-rule>
+		
+		<from-view-id>/pages/authentification.xhtml</from-view-id>
+		
+		<navigation-case>
+			<from-action>#{authentificationBean.connecter}</from-action>
+			<from-outcome>accepte</from-outcome>
+			<to-view-id>/pages/GestionUtilisateur.xhtml</to-view-id>
+		</navigation-case>
+				<navigation-case>
+			<from-action>#{authentificationBean.connecter}</from-action>
+			<from-outcome>rejete</from-outcome>
+			<to-view-id>/pages/authentification.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+ 
+ 	<application>
+		<resource-bundle>
+			<base-name>messages</base-name>
+			<var>msgs</var>
+		</resource-bundle>
+
+	</application>
+ 
+ 
+ 
+</faces-config>

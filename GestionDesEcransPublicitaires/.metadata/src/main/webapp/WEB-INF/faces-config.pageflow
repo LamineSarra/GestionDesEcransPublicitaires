@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13992882752380" configfile="/amani/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="pages/connect.xhtml" x="122" y="370" id="pf13992954043201" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" outlinks="pf13992954043202 pf13992954043203 pf13992954043204 pf13992954043205" inlinks="pf13992954043203 pf13992954043205" path="/pages/connect.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/listeUtilisateur.xhtml" x="338" y="178" id="pf13992954043206" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf13992954043207" inlinks="pf13992954043202 pf13998430393920 pf13998436342942" path="/pages/listeUtilisateur.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/error.xhtml" x="338" y="562" id="pf13992954043208" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf13992954043204" path="/pages/error.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="946" id="pf13992954043209" outlinks="pf139929540432010" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/scannerReseau.xhtml" x="338" y="946" id="pf139929540432011" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf139929540432010" path="/pages/scannerReseau.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/modifierUtilisateur.xhtml" x="564" y="178" id="pf139929540432012" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" outlinks="pf13998436342942" inlinks="pf13992954043207" path="/pages/modifierUtilisateur.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/ajouterUtilisateur.xhtml" id="pf13998430393921" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf13998430393920" path="/pages/ajouterUtilisateur.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/listePort.xhtml" id="pf14005940470800" referenceLink="//@navigationRule.4/@navigationCase.1/@toViewId|" outlinks="pf14005940470801" inlinks="pf14005942789403 pf14005993515225 pf14006008703126" path="/pages/listePort.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/modifierPort.xhtml" id="pf14005940470802" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf14005993515225 pf14006008703126" inlinks="pf14005940470801" path="/pages/modifierPort.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/ajoutPort.xhtml" id="pf14005942789404" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf14005942789403" path="/pages/ajoutPort.xhtml"/>
+  <links id="pf13992954043202" target="pf13992954043206" source="pf13992954043201" outcome="accepted" fromaction="#{connectBean.connecter}"/>
+  <links id="pf13992954043204" target="pf13992954043208" source="pf13992954043201" outcome="error"/>
+  <links id="pf139929540432010" target="pf139929540432011" source="pf13992954043209" outcome="scannerReseau"/>
+  <links id="pf13992954043207" target="pf139929540432012" source="pf13992954043206" outcome="modif" fromaction="#{utilisateurBean.modifier(use)}"/>
+  <links id="pf13992954043203" target="pf13992954043201" source="pf13992954043201" outcome="rejected" fromaction="#{connectBean.connecter}">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+  <links id="pf13992954043205" target="pf13992954043201" source="pf13992954043201" outcome="login">
+    <bendPoints d1Height="-66" d2Height="-66"/>
+    <bendPoints d1Width="-94" d1Height="-66" d2Width="-94" d2Height="-66"/>
+    <bendPoints d1Width="-94" d2Width="-94"/>
+  </links>
+  <links id="pf13998430393920" target="pf13992954043206" source="pf13998430393921" outcome="ajoute" fromaction="#{utilisateurBean.ajouter}"/>
+  <links id="pf13998436342942" target="pf13992954043206" source="pf139929540432012" outcome="modifie" fromaction="#{utilisateurBean.modification}"/>
+  <links id="pf14005940470801" target="pf14005940470802" source="pf14005940470800" outcome="modifp" fromaction="#{portBean.modifier(p)}"/>
+  <links id="pf14005942789403" target="pf14005940470800" source="pf14005942789404" outcome="portajoute" fromaction="#{portBean.ajouter}"/>
+  <links id="pf14005993515225" target="pf14005940470800" source="pf14005940470802" outcome="pmodifie" fromaction="#{portBean.modification}"/>
+  <links id="pf14006008703126" target="pf14005940470800" source="pf14005940470802" outcome="retour" fromaction="#{portBean.annuler}"/>
+</pageflow:Pageflow>

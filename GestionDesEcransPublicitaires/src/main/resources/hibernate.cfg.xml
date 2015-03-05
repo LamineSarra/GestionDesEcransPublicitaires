@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory>
+  <!-- local connection properties -->
+  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bd_publicitaire</property>
+  <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+  <property name="hibernate.connection.username">root</property>
+  <property name="hibernate.connection.password">0000</property>
+  <!-- dialect for MySQL -->
+  <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+  <property name="hibernate.show_sql">true</property>
+  <property name="hibernate.current_session_context_class">thread</property>
+  <property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+  <!-- 		Drop and re-create the database schema on startup   -->
+  <property name="hbm2ddl.auto">update</property>
+  <mapping class="com.stage.pfe.persistance.Utilisateur" resource="com/stage/pfe/persistance/Utilisateur.hbm.xml"/>
+  <mapping class="com.stage.pfe.persistance.Client" resource="com/stage/pfe/persistance/Client.hbm.xml"/>
+ </session-factory>
+</hibernate-configuration>
