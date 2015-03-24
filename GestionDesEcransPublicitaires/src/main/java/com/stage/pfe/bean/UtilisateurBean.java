@@ -1,21 +1,23 @@
 package com.stage.pfe.bean;
 
 import java.util.List;
-
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-
 import com.stage.pfe.persistance.Utilisateur;
+import com.stage.pfe.persistance.Ville;
+import com.stage.pfe.persistance.Type;
+import com.stage.pfe.service.TypeService;
 import com.stage.pfe.service.UtilisateurService;
+import com.stage.pfe.service.VilleService;
 
 
 
 @ManagedBean(name = "utilisateurBean")
 @SessionScoped
 public class UtilisateurBean{
-	private Integer idutilisateur;
+	private Integer idUtilisateur;
 	private String cin;
 	private String nom;
 	private String prenom;
@@ -24,18 +26,54 @@ public class UtilisateurBean{
 	private String email;
 	private String tel;
 	private String adresse;
-	private String type;
+	public String nomVille;
+	public String nomType;
+	
 
 	
 
 		private List<Utilisateur> listUtilisateurs;
+		private List<Ville> listVilles;
+		private List<Type> listTypes;
 
-	public Integer getIdutilisateur() {
-		return idutilisateur;
+		
+		
+	public List<Utilisateur> getListUtilisateurs() {
+		UtilisateurService ser=new UtilisateurService();
+		listUtilisateurs=ser.rechercheTousUtilisateur();	
+		return listUtilisateurs;
+		}
+
+		public void setListUtilisateurs(List<Utilisateur> listUtilisateurs) {
+			this.listUtilisateurs = listUtilisateurs;
+		}
+
+	public List<Ville> getListVilles() {
+		VilleService ser=new VilleService();
+		listVilles=ser.rechercheTousVille();
+		return listVilles;
+		}
+
+		public void setListVilles(List<Ville> listVilles) {
+			this.listVilles = listVilles;
+		}
+
+		public List<Type> getListTypes() {
+			TypeService ser= new TypeService();
+			listTypes=ser.rechercheTousType();
+			return listTypes;
+		}
+
+		public void setListTypes(List<Type> listTypes) {
+			this.listTypes = listTypes;
+		}
+
+	public Integer getidUtilisateur() {
+		return idUtilisateur;
 	}
 
-	public void setIdutilisateur(Integer idUtilisateur) {
-		this.idutilisateur = idUtilisateur;
+	public void setidUtilisateur(Integer idUtilisateur) {
+		this.idUtilisateur = idUtilisateur;
 	}
 
 	public String getCin() {
@@ -46,15 +84,6 @@ public class UtilisateurBean{
 		this.cin = cin;
 	}
 
-	public List<Utilisateur> getListUtilisateurs() {
-		UtilisateurService ser = new UtilisateurService();
-		listUtilisateurs=ser.rechercheTousUtilisateur();
-		return listUtilisateurs;
-	}
-
-	public void setListUtilisateurs(List<Utilisateur> listUtilisateurs) {
-		this.listUtilisateurs = listUtilisateurs;
-	}
 
 	public String getNom() {
 		return nom;
@@ -112,12 +141,30 @@ public class UtilisateurBean{
 		this.adresse = adresse;
 	}
 
-	public String getType() {
-		return type;
+
+	public Integer getIdUtilisateur() {
+		return idUtilisateur;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setIdUtilisateur(Integer idUtilisateur) {
+		this.idUtilisateur = idUtilisateur;
+	}
+
+
+	public String getNomVille() {
+		return nomVille;
+	}
+
+	public void setNomVille(String nomVille) {
+		this.nomVille = nomVille;
+	}
+
+	public String getNomType() {
+		return nomType;
+	}
+
+	public void setNomType(String nomType) {
+		this.nomType = nomType;
 	}
 
 	public String ajouter() {
@@ -144,10 +191,19 @@ public class UtilisateurBean{
 			u.setAdresse(adresse);
 			u.setEmail(email);
 			u.setTel(tel);
-			u.setType(type);
+			Ville v= new Ville();
+			v.setNomVille(nomVille);
+			Type t=new Type();
+			t.setNomType(nomType);
+		
 
 			UtilisateurService ser = new UtilisateurService();
 			ser.ajouterUtilisateur(u);
+			VilleService serv=new VilleService();
+			serv.ajouterVille(v);
+			TypeService sert =new TypeService();
+			sert.ajouterType(t);
+			
 			
 			reset();
 			return "ajoute";
@@ -221,7 +277,7 @@ public class UtilisateurBean{
 		
 		reset();
 
-		idutilisateur = u.getIdutilisateur();
+		idUtilisateur = u.getIdUtilisateur();
 		nom = u.getNom();
 		adresse = u.getAdresse();
 		cin = u.getCin();
@@ -230,7 +286,7 @@ public class UtilisateurBean{
 		mdp = u.getMdp();
 		prenom = u.getPrenom();
 		tel = u.getTel();
-		type = u.getType();
+		
 		
 	}
 
@@ -240,7 +296,6 @@ public class UtilisateurBean{
 
 		// il faut vérifier la contrainte de l'unicité apès le changement
 		Utilisateur u = new Utilisateur();
-		u.setIdutilisateur(idutilisateur);
 		u.setNom(nom);
 		u.setPrenom(prenom);
 		u.setLogin(login);
@@ -249,7 +304,7 @@ public class UtilisateurBean{
 		u.setEmail(email);
 		u.setTel(tel);
 		u.setAdresse(adresse);
-		u.setType(type);
+
 		UtilisateurService ser = new UtilisateurService();
 		ser.modifierUtilisateur(u);
 		

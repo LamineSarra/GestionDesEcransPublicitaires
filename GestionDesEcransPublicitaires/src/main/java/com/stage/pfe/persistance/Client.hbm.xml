@@ -3,15 +3,15 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 11 avr. 2014 14:25:46 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.stage.pfe.persistance.Client" table="client" catalog="bd_publicitaire">
+    <class name="com.stage.pfe.persistance.Client" table="client" catalog="bd_plv">
         <id name="idClient" type="java.lang.Integer">
-            <column name="idclient" />
+            <column name="idClient" />
             <generator class="increment" />
         </id>
         <property name="nom" type="string">
             <column name="nom" length="45" />
         </property>
-         <property name="prenom" type="string">
+        <property name="prenom" type="string">
             <column name="prenom" length="45" />
         </property>
         <property name="adresse" type="string">
@@ -23,24 +23,28 @@
         <property name="tel" type="string">
             <column name="tel" length="45" />
         </property>
+        <property name="cin" type="string">
+            <column name="cin" length="45" />
+        </property>
+        <property name="login" type="string">
+            <column name="login" length="45" />
+        </property>
+        <property name="mdp" type="string">
+            <column name="mdp" length="45" />
+        </property>
         <property name="tel2" type="string">
             <column name="tel2" length="45" />
         </property>
         <property name="raisonSocial" type="string">
-            <column name="raisonsocial" length="45" />
+            <column name="raisonSocial" length="45" />
         </property>
         <property name="fax" type="string">
             <column name="fax" length="45" />
         </property>
-   		<property name="cin" type="string">
-            <column name="cin" length="45" />
+        <property name="validite" type="boolean">
+            <column name="validite" length="1" default="false"/>
         </property>
-        <property name="validite" type="TINYINT">
-            <column name="validite" length="1"/>
-        </property>
-        <property name="ville" type="string">
-            <column name="ville" length="45" />
-        </property>
+
         
     </class>
 </hibernate-mapping>

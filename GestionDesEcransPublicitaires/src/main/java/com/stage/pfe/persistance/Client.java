@@ -5,32 +5,36 @@ package com.stage.pfe.persistance;
 //Generated 11 avr. 2014 14:25:46 by Hibernate Tools 3.4.0.CR1
 
 
-public class Client implements java.io.Serializable {
+public class Client{
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
 	private Integer idClient;
 	private String nom;
 	private String prenom;
 	private String adresse;
 	private String email;
 	private String tel;
+	private String cin;
+	private String login;
+	private String mdp;
 	private String tel2;
 	private String raisonSocial;
 	private String fax;
-	private String cin;
 	private boolean validite;
-	private String ville;
+	
+	
 	
 	public Client() {
-		super();
+		
 	}
 
+
+
 	public Client(Integer idClient, String nom, String prenom, String adresse,
-			String email, String tel, String tel2, String raisonSocial,
-			String fax, String cin, boolean validite, String ville) {
+			String email, String tel, String cin, String login, String mdp,
+			String tel2, String raisonSocial, String fax, boolean validite) {
 		super();
 		this.idClient = idClient;
 		this.nom = nom;
@@ -38,118 +42,184 @@ public class Client implements java.io.Serializable {
 		this.adresse = adresse;
 		this.email = email;
 		this.tel = tel;
+		this.cin = cin;
+		this.login = login;
+		this.mdp = mdp;
 		this.tel2 = tel2;
 		this.raisonSocial = raisonSocial;
 		this.fax = fax;
-		this.cin = cin;
-		this.ville = ville;
+		this.validite = validite;
 	}
 
-	@Override
-	public String toString() {
-		return "Client [idClient=" + idClient + ", nom=" + nom + ", prenom="
-				+ prenom + ", adresse=" + adresse + ", email=" + email
-				+ ", tel=" + tel + ", tel2=" + tel2 + ", raisonSocial="
-				+ raisonSocial + ", fax=" + fax + ", cin=" + cin
-				+ ", validite=" + validite + ", ville=" + ville + "]";
-	}
+
 
 	public Integer getIdClient() {
 		return idClient;
 	}
 
+
+
 	public void setIdClient(Integer idClient) {
 		this.idClient = idClient;
 	}
+
+
 
 	public String getNom() {
 		return nom;
 	}
 
+
+
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
+
 
 	public String getPrenom() {
 		return prenom;
 	}
 
+
+
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
+
+
 
 	public String getAdresse() {
 		return adresse;
 	}
 
+
+
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
+
+
 
 	public String getEmail() {
 		return email;
 	}
 
+
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+
 
 	public String getTel() {
 		return tel;
 	}
 
+
+
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
 
-	public String getTel2() {
-		return tel2;
-	}
 
-	public void setTel2(String tel2) {
-		this.tel2 = tel2;
-	}
-
-	public String getRaisonSocial() {
-		return raisonSocial;
-	}
-
-	public void setRaisonSocial(String raisonSocial) {
-		this.raisonSocial = raisonSocial;
-	}
-
-	public String getFax() {
-		return fax;
-	}
-
-	public void setFax(String fax) {
-		this.fax = fax;
-	}
 
 	public String getCin() {
 		return cin;
 	}
+
+
 
 	public void setCin(String cin) {
 		this.cin = cin;
 	}
 
 
+
+	public String getLogin() {
+		return login;
+	}
+
+
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+
+
+	public String getMdp() {
+		return mdp;
+	}
+
+
+
+	public void setMdp(String mdp) {
+		this.mdp = mdp;
+	}
+
+
+
+	public String getTel2() {
+		return tel2;
+	}
+
+
+
+	public void setTel2(String tel2) {
+		this.tel2 = tel2;
+	}
+
+
+
+	public String getRaisonSocial() {
+		return raisonSocial;
+	}
+
+
+
+	public void setRaisonSocial(String raisonSocial) {
+		this.raisonSocial = raisonSocial;
+	}
+
+
+
+	public String getFax() {
+		return fax;
+	}
+
+
+
+	public void setFax(String fax) {
+		this.fax = fax;
+	}
+
+
+
 	public boolean isValidite() {
 		return validite;
 	}
+
+
 
 	public void setValidite(boolean validite) {
 		this.validite = validite;
 	}
 
-	public String getVille() {
-		return ville;
+
+
+	@Override
+	public String toString() {
+		return "Client [idClient=" + idClient + ", nom=" + nom + ", prenom="
+				+ prenom + ", adresse=" + adresse + ", email=" + email
+				+ ", tel=" + tel + ", cin=" + cin + ", login=" + login
+				+ ", mdp=" + mdp + ", tel2=" + tel2 + ", raisonSocial="
+				+ raisonSocial + ", fax=" + fax + ", validite=" + validite
+				+ "]";
 	}
 
-	public void setVille(String ville) {
-		this.ville = ville;
-	}
+
 
 	@Override
 	public int hashCode() {
@@ -161,6 +231,8 @@ public class Client implements java.io.Serializable {
 		result = prime * result + ((fax == null) ? 0 : fax.hashCode());
 		result = prime * result
 				+ ((idClient == null) ? 0 : idClient.hashCode());
+		result = prime * result + ((login == null) ? 0 : login.hashCode());
+		result = prime * result + ((mdp == null) ? 0 : mdp.hashCode());
 		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
 		result = prime * result + ((prenom == null) ? 0 : prenom.hashCode());
 		result = prime * result
@@ -168,9 +240,10 @@ public class Client implements java.io.Serializable {
 		result = prime * result + ((tel == null) ? 0 : tel.hashCode());
 		result = prime * result + ((tel2 == null) ? 0 : tel2.hashCode());
 		result = prime * result + (validite ? 1231 : 1237);
-		result = prime * result + ((ville == null) ? 0 : ville.hashCode());
 		return result;
 	}
+
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -206,6 +279,16 @@ public class Client implements java.io.Serializable {
 				return false;
 		} else if (!idClient.equals(other.idClient))
 			return false;
+		if (login == null) {
+			if (other.login != null)
+				return false;
+		} else if (!login.equals(other.login))
+			return false;
+		if (mdp == null) {
+			if (other.mdp != null)
+				return false;
+		} else if (!mdp.equals(other.mdp))
+			return false;
 		if (nom == null) {
 			if (other.nom != null)
 				return false;
@@ -233,13 +316,9 @@ public class Client implements java.io.Serializable {
 			return false;
 		if (validite != other.validite)
 			return false;
-		if (ville == null) {
-			if (other.ville != null)
-				return false;
-		} else if (!ville.equals(other.ville))
-			return false;
 		return true;
 	}
 
+		  
 	
 }

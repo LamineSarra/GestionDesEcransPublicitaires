@@ -24,7 +24,7 @@ import static org.hibernate.criterion.Example.create;
 
 /**
  * Home object for domain model class Client.
- * @see com.cimf.supervision.dao.Client
+ * @see com.Client.supervision.dao.Client
  * @author Hibernate Tools
  */
 @SuppressWarnings("unused")

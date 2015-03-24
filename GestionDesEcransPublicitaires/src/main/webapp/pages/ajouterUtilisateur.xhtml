@@ -67,18 +67,48 @@
 						</h:outputLabel>
 
 						<h:outputLabel value="Adresse :"></h:outputLabel>
-						<h:inputText value="#{utilisateurBean.adresse}" />
+						<h:inputText value="#{utilisateurBean.adresse}"  />
+						<h:outputLabel>
+							<br />
+						</h:outputLabel>
+						<h:outputLabel value="Ville :"></h:outputLabel>
+						<h:selectOneMenu id="ville"  value="#{utilisateurBean.nomVille}">
+						<f:selectItem itemValue="Tunis" itemLabel="Tunis"/>
+						<f:selectItem itemValue="Ariana" itemLabel="Ariana"/>
+						<f:selectItem itemValue="Beja" itemLabel="Beja"/>
+						<f:selectItem itemValue="Ben Arous" itemLabel="Ben Arous"/>
+						<f:selectItem itemValue="Bizerte" itemLabel="Bizerte"/>
+						<f:selectItem itemValue="Gabes" itemLabel="Gabes"/>
+						<f:selectItem itemValue="Gafsa" itemLabel="Gafsa"/>
+						<f:selectItem itemValue="Jandouba" itemLabel="Jandouba"/>
+						<f:selectItem itemValue="Kairouan" itemLabel="Kairouan"/>
+						<f:selectItem itemValue="Kasserine" itemLabel="Kasserine"/>
+						<f:selectItem itemValue="Kébili" itemLabel="Kébili"/>
+						<f:selectItem itemValue="Le Kef" itemLabel="Le Kef"/>
+						<f:selectItem itemValue="Mahdia" itemLabel="Mahdia"/>
+						<f:selectItem itemValue="La Manouba" itemLabel="La Manouba"/>
+						<f:selectItem itemValue="Mednine" itemLabel="Mednine"/>
+						<f:selectItem itemValue="Monastir" itemLabel="Monastir"/>
+						<f:selectItem itemValue="Nabeul" itemLabel="Nabeul"/>
+						<f:selectItem itemValue="Sfax" itemLabel="Sfax"/>
+						<f:selectItem itemValue="Sidi Bouzid" itemLabel="Sidi Bouzid"/>
+						<f:selectItem itemValue="Siliana" itemLabel="Siliana"/>
+						<f:selectItem itemValue="Sousse" itemLabel="Sousse"/>
+						<f:selectItem itemValue="Tataouine" itemLabel="Tataouine"/>
+						<f:selectItem itemValue="Tozeur" itemLabel="Tozeur"/>
+						<f:selectItem itemValue="Zaghouan" itemLabel="Zaghouan"/> 
+						</h:selectOneMenu>
 						<h:outputLabel>
 							<br />
 						</h:outputLabel>
 
 
 						<h:outputLabel value="Type :"></h:outputLabel>
-						<h:selectOneMenu id="type" value="#{utilisateurBean.type}"
+						<h:selectOneMenu id="type" value="#{utilisateurBean.nomType}"
 							style="width : 144px; height : 23px;">
-							<f:selectItem itemValue="Superviseur" itemLabel="Superviseur" />
-							<f:selectItem itemValue="Administrateur"
-								itemLabel="Administrateur" />
+							<f:selectItem itemValue="Planificateur" itemLabel="Planificateur" />
+							<f:selectItem itemValue="Administrateur" itemLabel="Administrateur" />
+							<f:selectItem itemValue="Designer" itemLabel="Designer" />
 						</h:selectOneMenu>
 
 						<h:outputLabel>
@@ -93,8 +123,7 @@
 						<h:outputLabel>
 							<br />
 						</h:outputLabel>
-						<p:commandButton value="Ajouter" action="GestionUtilisateur" 
-							actionListener="#{utilisateurBean.ajouter}" />
+						<p:commandButton value="Ajouter"  actionListener="#{utilisateurBean.ajouter}" action="GestionUtilisateur" />
 						<p:commandButton value="Annuler" action="GestionUtilisateur" />
 
 					</h:panelGrid>

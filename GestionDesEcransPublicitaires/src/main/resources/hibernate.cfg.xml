@@ -4,7 +4,7 @@
 <hibernate-configuration>
  <session-factory>
   <!-- local connection properties -->
-  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bd_publicitaire</property>
+  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bd_plv</property>
   <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
   <property name="hibernate.connection.username">root</property>
   <property name="hibernate.connection.password">0000</property>
@@ -17,5 +17,16 @@
   <property name="hbm2ddl.auto">update</property>
   <mapping class="com.stage.pfe.persistance.Utilisateur" resource="com/stage/pfe/persistance/Utilisateur.hbm.xml"/>
   <mapping class="com.stage.pfe.persistance.Client" resource="com/stage/pfe/persistance/Client.hbm.xml"/>
+  <mapping class="com.stage.pfe.persistance.Categorie" resource="com/stage/pfe/persistance/Categorie.hbm.xml"/>
+  <mapping class="com.stage.pfe.persistance.Contrat" resource="com/stage/pfe/persistance/Contrat.hbm.xml"/>
+  <mapping class="com.stage.pfe.persistance.Ecran" resource="com/stage/pfe/persistance/Ecran.hbm.xml"/>
+  <mapping class="com.stage.pfe.persistance.Heure" resource="com/stage/pfe/persistance/Heure.hbm.xml"/>
+  <mapping class="com.stage.pfe.persistance.Jour" resource="com/stage/pfe/persistance/Jour.hbm.xml"/>
+  <mapping class="com.stage.pfe.persistance.Magasin" resource="com/stage/pfe/persistance/Magasin.hbm.xml"/>
+  <mapping class="com.stage.pfe.persistance.Message" resource="com/stage/pfe/persistance/Message.hbm.xml"/>
+  <mapping class="com.stage.pfe.persistance.Ville" resource="com/stage/pfe/persistance/Ville.hbm.xml"/>
+  <mapping class="com.stage.pfe.persistance.Plan" resource="com/stage/pfe/persistance/Plan.hbm.xml"/>
+  <mapping class="com.stage.pfe.persistance.PlanMsg" resource="com/stage/pfe/persistance/PlanMsg.hbm.xml"/>
+  <mapping class="com.stage.pfe.persistance.Type" resource="com/stage/pfe/persistance/Type.hbm.xml"/>
  </session-factory>
 </hibernate-configuration>

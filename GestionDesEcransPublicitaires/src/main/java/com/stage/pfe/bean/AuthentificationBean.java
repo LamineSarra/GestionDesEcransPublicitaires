@@ -80,5 +80,11 @@ public class AuthentificationBean {
 			}
     }
 		}
+	public void reset() {
+
+		login = "";
+		mdp = "";
+
+	}
     
 }

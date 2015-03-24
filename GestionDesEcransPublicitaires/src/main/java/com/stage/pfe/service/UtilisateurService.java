@@ -89,7 +89,6 @@ public class UtilisateurService {
 		Transaction tx = null;
 
 		try {Utilisateur u=new Utilisateur();
-		u.setIdutilisateur(id);
 			// Ouverture d’une transaction
 			tx = session.beginTransaction();
 			dao.delete(u);

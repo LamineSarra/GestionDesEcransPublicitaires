@@ -8,7 +8,9 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import com.stage.pfe.persistance.Client;
+import com.stage.pfe.persistance.Ville;
 import com.stage.pfe.service.ClientService;
+import com.stage.pfe.service.VilleService;
 
 
 
@@ -17,28 +19,24 @@ import com.stage.pfe.service.ClientService;
 @SessionScoped
 public class ClientBean{
 	private Integer idClient;
-	private String nom;
-	private String prenom;
-	private String adresse;
-	private String email;
-	private String tel;
+	protected String nom;
+	protected String prenom;
+	protected String adresse;
+	protected String email;
+	protected String tel;
+	protected String cin;
+	protected String login;
+	protected String mdp;
 	private String tel2;
 	private String raisonSocial;
 	private String fax;
-	private String cin;
 	private boolean validite;
-	private String ville;
-
-private String rue;
+	private String nomVille;
 	
 
-		public String getRue() {
-	return rue;
-}
 
-public void setRue(String rue) {
-	this.rue = rue;
-}
+
+	
 
 		public Integer getIdClient() {
 		return idClient;
@@ -88,6 +86,30 @@ public void setRue(String rue) {
 		this.tel = tel;
 	}
 
+	public String getCin() {
+		return cin;
+	}
+
+	public void setCin(String cin) {
+		this.cin = cin;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getMdp() {
+		return mdp;
+	}
+
+	public void setMdp(String mdp) {
+		this.mdp = mdp;
+	}
+
 	public String getTel2() {
 		return tel2;
 	}
@@ -112,16 +134,6 @@ public void setRue(String rue) {
 		this.fax = fax;
 	}
 
-	public String getCin() {
-		return cin;
-	}
-
-	public void setCin(String cin) {
-		this.cin = cin;
-	}
-
-
-
 	public boolean isValidite() {
 		return validite;
 	}
@@ -129,14 +141,18 @@ public void setRue(String rue) {
 	public void setValidite(boolean validite) {
 		this.validite = validite;
 	}
+	
+	
 
-	public String getVille() {
-		return ville;
+		public String getNomVille() {
+		return nomVille;
 	}
 
-	public void setVille(String ville) {
-		this.ville = ville;
+	public void setNomVille(String nomVille) {
+		this.nomVille = nomVille;
 	}
+
+
 
 		private List<Client> listClientsv;
 		private List<Client> listClientsinv;
@@ -173,21 +189,27 @@ public void setRue(String rue) {
 
 		if (verif) {
 			// Création d'un utilisateur selon les champs saisis
-			Client u = new Client();
-			u.setCin(cin);
-			u.setNom(nom);
-			u.setPrenom(prenom);
-			u.setVille(ville);
-			u.setAdresse(adresse);
-			u.setEmail(email);
-			u.setTel(tel);
-			u.setTel2(tel2);
-			u.setFax(fax);
-			u.setRaisonSocial(raisonSocial);
+			Client c = new Client();
+			c.setCin(cin);
+			c.setNom(nom);
+			c.setPrenom(prenom);
+			c.setAdresse(adresse);
+			c.setEmail(email);
+			c.setTel(tel);
+			c.setTel2(tel2);
+			c.setFax(fax);
+			c.setRaisonSocial(raisonSocial);
+			c.setLogin(login);
+			c.setMdp(mdp);
+			c.setValidite(validite);
+			Ville v=new Ville();
+			v.setNomVille(nomVille);
 
 			ClientService ser = new ClientService();
-			ser.ajouterClient(u);
-			FacesMessage msg = new FacesMessage("Succé", "Bienvenue :" + u.getPrenom());
+			ser.ajouterClient(c);
+			VilleService serv=new VilleService();
+			serv.ajouterVille(v);
+			FacesMessage msg = new FacesMessage("Succé", "Bienvenue :" + c.getPrenom());
 	        FacesContext.getCurrentInstance().addMessage(null, msg);
 			reset();
 			return "ajoute";
@@ -247,7 +269,6 @@ public void setRue(String rue) {
 		u.setCin(cin);
 		u.setNom(nom);
 		u.setPrenom(prenom);
-		u.setVille(ville);
 		u.setAdresse(adresse);
 		u.setEmail(email);
 		u.setTel(tel);
@@ -267,7 +288,6 @@ public void setRue(String rue) {
 		u.setCin(cin);
 		u.setNom(nom);
 		u.setPrenom(prenom);
-		u.setVille(ville);
 		u.setAdresse(adresse);
 		u.setEmail(email);
 		u.setTel(tel);

@@ -12,6 +12,7 @@
              
     <p:growl id="msgs" life="2000" />
     <h3>Liste des fourisseurs</h3>
+    <div align="right"><p:commandButton action="ajouterClient" icon="ui-icon-plusthick" title="ajouter"></p:commandButton></div>
     <p:tabView dynamic="true" cache="true" >
         <p:tab title="Clients valides" id="tab1">
             <h:panelGrid columns="2" cellpadding="10">
@@ -46,9 +47,7 @@
     				<p:column headerText="CIN">
         				<h:outputText value="#{clientv.cin}" />
     				</p:column>
-    				<p:column headerText="Ville">
-        				<h:outputText value="#{clientv.ville}" />
-    				</p:column>    				    				    				    				    				
+    				    				    				    				    				
 
 				</p:dataTable>
             </h:panelGrid>
@@ -85,10 +84,7 @@
     				</p:column>
     				<p:column headerText="CIN">
         				<h:outputText value="#{clientinv.cin}" />
-    				</p:column>
-    				<p:column headerText="Ville">
-        				<h:outputText value="#{clientinv.ville}" />
-    				</p:column>    				    				    				    				    				
+    				</p:column>   				    				    				    				    				
 
 				</p:dataTable>
 

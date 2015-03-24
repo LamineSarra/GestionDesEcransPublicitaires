@@ -2,100 +2,8 @@
 <faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
  xmlns:xi="http://www.w3.org/2001/XInclude"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
- 
- 
- 
- <navigation-rule>
-  <from-view-id>/pages/connect.xhtml</from-view-id>
- 
-  <navigation-case>
-   	<from-action>#{connectBean.connecter}</from-action>
-			<from-outcome>accepted</from-outcome>
-			<to-view-id>/pages/listeUtilisateur.xhtml</to-view-id>
-		
-  </navigation-case>
-  
-  <navigation-case>
-   	<from-action>#{connectBean.connecter}</from-action>
-			<from-outcome>rejected</from-outcome>
-			<to-view-id>/pages/connect.xhtml</to-view-id>
-		
-  </navigation-case>
-    
-  <navigation-case>
-   <from-outcome>error</from-outcome>
-   <to-view-id>/pages/error.xhtml</to-view-id>
-  </navigation-case>
-  
-  <navigation-case>
-   <from-outcome>login</from-outcome>
-   <to-view-id>/pages/connect.xhtml</to-view-id>
-  </navigation-case>
-  
-  
-   
- </navigation-rule>
- 
- 
- <navigation-rule>
-  <navigation-case>
-   <from-outcome>scannerReseau</from-outcome>
-   <to-view-id>/pages/scannerReseau.xhtml</to-view-id>
-  </navigation-case>
- </navigation-rule>
- 
- 
- <navigation-rule>
-		
-		<from-view-id>/pages/listePort.xhtml</from-view-id>
-		
-		<navigation-case>
-			<from-action>#{portBean.modifier(p)}</from-action>
-			<from-outcome>modifp</from-outcome>
-			<to-view-id>/pages/modifierPort.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
- 
- 
- <navigation-rule>
-		
-		<from-view-id>/pages/ajoutPort.xhtml</from-view-id>
-		
-		<navigation-case>
-			<from-action>#{portBean.ajouter}</from-action>
-			<from-outcome>portajoute</from-outcome>
-			<to-view-id>/pages/listePort.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	
-	
-	<navigation-rule>
-		
-		<from-view-id>/pages/modifierPort.xhtml</from-view-id>
-		
-		<navigation-case>
-			<from-action>#{portBean.modification}</from-action>
-			<from-outcome>pmodifie</from-outcome>
-			<to-view-id>/pages/listePort.xhtml</to-view-id>
-		</navigation-case>
-		
-		<navigation-case>
-			<from-action>#{portBean.annuler}</from-action>
-			<from-outcome>retour</from-outcome>
-			<to-view-id>/pages/listePort.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
- 
- <navigation-rule>
-		
-		<from-view-id>/pages/listeUtilisateur.xhtml</from-view-id>
-		
-		<navigation-case>
-			<from-action>#{utilisateurBean.modifier(use)}</from-action>
-			<from-outcome>modif</from-outcome>
-			<to-view-id>/pages/modifierUtilisateur.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
+
+
 	
 	
 <navigation-rule>
@@ -107,7 +15,52 @@
 			<from-outcome>ajoute</from-outcome>
 			<to-view-id>/pages/GestionUtilisateur.xhtml</to-view-id>
 		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		
+		<from-view-id>/pages/ajouterClient.xhtml</from-view-id>
+		
+		<navigation-case>
+			<from-action>#{clientBean.ajouter}</from-action>
+			<from-outcome>ajoute</from-outcome>
+			<to-view-id>/pages/GestionClient.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		
+		<from-view-id>/pages/ajouterMesaage.xhtml</from-view-id>
+		
+		<navigation-case>
+			<from-action>#{messageBean.ajouter}</from-action>
+			<from-outcome>ajoute</from-outcome>
+			<to-view-id>/pages/GestionMessage.xhtml</to-view-id>
+		</navigation-case>
 	</navigation-rule>	
+	
+		<navigation-rule>
+		
+		<from-view-id>/pages/ajouterMagasin.xhtml</from-view-id>
+		
+		<navigation-case>
+			<from-action>#{magasinBean.ajouter}</from-action>
+			<from-outcome>ajoute</from-outcome>
+			<to-view-id>/pages/GestionMagasin.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		
+		<from-view-id>/pages/ajouterContrat.xhtml</from-view-id>
+		
+		<navigation-case>
+			<from-action>#{contratBean.ajouter}</from-action>
+			<from-outcome>ajoute</from-outcome>
+			<to-view-id>/pages/GestionContrat.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
 
 <navigation-rule>
 		
@@ -126,7 +79,7 @@
 		<navigation-case>
 			<from-action>#{authentificationBean.connecter}</from-action>
 			<from-outcome>accepte</from-outcome>
-			<to-view-id>/pages/GestionUtilisateur.xhtml</to-view-id>
+			<to-view-id>/pages/choixDesListes.xhtml</to-view-id>
 		</navigation-case>
 				<navigation-case>
 			<from-action>#{authentificationBean.connecter}</from-action>
@@ -134,6 +87,17 @@
 			<to-view-id>/pages/authentification.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	
+	<navigation-rule>
+		
+		<from-view-id>/pages/ajouterMagasin.xhtml</from-view-id>
+		
+		<navigation-case>
+			<from-action>#{magasinBean.ajouter}</from-action>
+			<from-outcome>ajoute</from-outcome>
+			<to-view-id>/pages/GestionMagasin.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>	
  
  	<application>
 		<resource-bundle>

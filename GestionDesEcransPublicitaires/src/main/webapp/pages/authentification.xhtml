@@ -10,7 +10,7 @@
 <h:form id="authen">
     <p:growl id="msgs" showDetail="true" />
  
-    <p:panel id="Basic" header="Connexion" style="margin-bottom:20px">
+    <p:panel id="Basic" header="Bienvenue dans l'espace utilistateur" style="margin-bottom:20px">
         <h:panelGrid columns="2" cellpadding="10">
             
 						<h:outputLabel value="Login : ">
@@ -20,8 +20,9 @@
 						<h:outputLabel value="Mot de passe : ">
 							<h:outputLabel style="FONT-SIZE: small; color: red;">*</h:outputLabel>
 						</h:outputLabel>
-						<h:inputText value="#{authentificationBean.mdp}" id="mdpid" />
+						<h:inputSecret value="#{authentificationBean.mdp}" id="mdpid"/>
 						<p:commandButton value="Se connecter" action="#{authentificationBean.connecter}"  update="authen"/>
+						<p:commandButton value="Annuler" action="#{authentificationBean.reset}"  update="authen"/>
         </h:panelGrid>
     </p:panel>
     </h:form>

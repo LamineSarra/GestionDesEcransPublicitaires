@@ -12,10 +12,9 @@
 <div align="center">
 <p:fieldset legend="Liste des utilisateurs" ><div align="right"><p:commandButton action="ajouterUtilisateur" icon="ui-icon-plusthick" title="ajouter"></p:commandButton></div>
 <p:growl id="growl" life="2000" />
-		<p:dataTable var="use" value="#{utilisateurBean.listUtilisateurs}"
-			border="2" emptyMessage="pas d'utilisateurs">
-
-			<p:column headerText="Nom" style="font-size: 12pt">
+		<p:dataTable var="use" value="#{utilisateurBean.listUtilisateurs}" emptyMessage="pas d'utilisateurs">
+		
+			<p:column  headerText="Nom" style="font-size: 12pt">
 
 				<h:outputText value="#{use.nom}" style="font-size: 10pt" />
 			</p:column>
@@ -23,16 +22,6 @@
 			<p:column headerText="Prenom" style="font-size: 12pt">
 
 				<h:outputText value="#{use.prenom}" style="font-size: 10pt" />
-			</p:column>
-
-			<p:column headerText="Login" style="font-size: 12pt">
-
-				<h:outputText value="#{use.login}" style="font-size: 10pt" />
-			</p:column>
-
-			<p:column headerText="Mot de passe" style="font-size: 12pt">
-
-				<h:outputText value="#{use.mdp}" style="font-size: 10pt" />
 			</p:column>
 			
 			<p:column headerText="CIN" style="font-size: 12pt">
@@ -49,29 +38,24 @@
 
 				<h:outputText value="#{use.tel}" style="font-size: 10pt" />
 			</p:column>
-			
+
 			<p:column headerText="Adresse" style="font-size: 12pt">
 
 				<h:outputText value="#{use.adresse}" style="font-size: 10pt" />
 			</p:column>
 			
-			<p:column headerText="Type" style="font-size: 12pt">
-
-				<h:outputText value="#{use.type}" style="font-size: 10pt" />
-			</p:column>
-
 			<p:column>
-									<p:commandButton  actionListener="#{utilisateurBean.supprimer(use.idutilisateur)}" id="supression" update=":f1" icon="ui-icon-trash" title="supprimer">
-									<p:confirm header="Confirmation" message="Etes-vous sûr?" icon="ui-icon-alert" />
-									</p:commandButton>
-									    <p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
-        								<p:commandButton value="Oui" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-        								<p:commandButton value="Non" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-   										 </p:confirmDialog>
-									<p:commandButton  actionListener="#{utilisateurBean.modifier(use)}" id="modification" action="modifierUtilisateur" icon="ui-icon-pencil" title="modifier"/>
-					
-								</p:column>
-		</p:dataTable>
+			
+						<p:commandButton  actionListener="#{utilisateurBean.supprimer(use.idUtilisateur)}" id="supression" update=":f1" icon="ui-icon-trash" title="supprimer">
+							<p:confirm header="Confirmation" message="Etes-vous sûr?" icon="ui-icon-alert" />
+						</p:commandButton>
+							<p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+        						<p:commandButton value="Oui" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+        						<p:commandButton value="Non" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+   							</p:confirmDialog>
+						<p:commandButton actionListener="#{utilisateurBean.modifier(use)}" id="modification" action="modifierUtilisateur" icon="ui-icon-pencil" title="modifier"/>
+			 </p:column>
+			 </p:dataTable>
 	</p:fieldset>
 		</div>
 </h:form>
