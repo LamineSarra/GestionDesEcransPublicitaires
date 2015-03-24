@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="../templates/temp.xhtml">
+	<ui:define name="body">
+		<div align="center">
+<h:form id="accueil">
+<h3>Bienvenu dans l'espace de gestion des écrans publicitaires dans les lieux de vente</h3>
+<p:contentFlow value="#{AccueilBean.images}" var="image">
+    <p:graphicImage name="../images/#{image}" styleClass="content" />
+    <div class="caption">#{image}</div>
+</p:contentFlow>
+<p:commandButton value="Se connecter" action="authentification"  update="accueil"/>
+<p:commandButton value="Créer un compte" action="formulaire"  update="accueil"/>
+</h:form>
+</div>
+</ui:define>
+</ui:composition>
+</html>

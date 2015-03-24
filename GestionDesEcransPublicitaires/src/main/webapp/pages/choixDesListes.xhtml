@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="../templates/temp.xhtml">
+	<ui:define name="body">
+		<div align="left">
+<h:form id="choix">
+    <p:growl id="msgs" showDetail="true" />
+ 
+    <p:panel id="basic" header="Basic" footer="Movie Details" style="margin-bottom:20px">
+        <h:panelGrid columns="1" cellpadding="10">
+			<p:commandButton  action="GestionUtilisateur" id="GestionUtilisateur" image="contacts-icon.png" value="Gestion des utilisateurs" update="choix"/>
+        	<p:commandButton  action="GestionClient" id="GestionClient" image="contacts-icon.png" value="Gestion des clients" update="choix"/>
+        	<p:commandButton  action="GestionMagasin" id="GestionMagasin" image="contacts-icon.png" value="Gestion des magasins" update="choix"/>
+        	<p:commandButton  action="GestionContrat" id="GestionContrat" image="contacts-icon.png" value="Gestion des contrats" update="choix"/>
+        	<p:commandButton   action="GestionMessage" id="GestionMessage" image="contacts-icon.png" value="Gestion des messages" update="choix"/>
+        	<p:commandButton action="GestionPlan" id="GestionPlan" image="contacts-icon.png" value="Gestion des plans" update="choix"/>
+        	
+        </h:panelGrid>
+    </p:panel>
+    </h:form>
+    </div>
+    </ui:define>
+    </ui:composition>
+    </html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="../templates/temp.xhtml">
+
+	<ui:define name="body">
+		<h:form id ="f1">
+			<div align="center">
+				<p:fieldset legend="Liste des magasins" ><div align="right"><p:commandButton action="ajouterMagasin" icon="ui-icon-plusthick" title="ajouter"></p:commandButton></div>
+					<p:growl id="growl" life="2000" />
+						<p:dataTable var="mag" value="#{magasinBean.listMagasins}"
+						border="2" emptyMessage="pas de magasins">
+
+							<p:column headerText="Nom du magasin" style="font-size: 12pt">
+
+							<h:outputText value="#{mag.nomMagasin}" style="font-size: 10pt" />
+							</p:column>
+							<p:column headerText="Adresse du magasin" style="font-size: 12pt">
+
+							<h:outputText value="#{mag.adresseMagasin}" style="font-size: 10pt" />
+							</p:column>
+							<p:column headerText="Code du magasin" style="font-size: 12pt">
+
+							<h:outputText value="#{mag.codeMagasin}" style="font-size: 10pt" />
+							</p:column>
+							<p:column>
+									<p:commandButton  actionListener="#{magasinBean.supprimer(mag.idMagasin)}" id="supression" update=":f1" icon="ui-icon-trash" title="supprimer">
+										<p:confirm header="Confirmation" message="Etes-vous sûr?" icon="ui-icon-alert" />
+									</p:commandButton>
+									    <p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+        									<p:commandButton value="Oui" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+        									<p:commandButton value="Non" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+   										</p:confirmDialog>
+									<p:commandButton  actionListener="#{magasinBean.modifier(mag)}" id="modification" action="modifierMagasin" icon="ui-icon-pencil" title="modifier" update=":f1"/>
+					
+							</p:column>							
+							
+						</p:dataTable>
+				</p:fieldset>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="../templates/temp.xhtml">
+
+	<ui:define name="body">
+		<div align="center">
+			<p:fieldset legend="Ajout Client" id="fieldajout"
+				style="width:50%;FONT-SIZE: small;">
+				<br />
+				<h:form id="formgestionid" style="FONT-SIZE: small;">
+					<h:panelGrid columns="3">
+
+
+						<h:outputLabel value="N° CIN : ">
+							<h:outputLabel style="FONT-SIZE: small; color: red;">*</h:outputLabel>
+						</h:outputLabel>
+						<h:inputText value="#{clientBean.cin}" id="cinid" />
+						<h:outputLabel>
+							<h:message for="cinid"
+								style="FONT-SIZE: small;FONT-STYLE: italic; color: red;" />
+						</h:outputLabel>
+
+						<h:outputLabel value="Nom : "></h:outputLabel>
+						<h:inputText value="#{clientBean.nom}" />
+						<h:outputLabel>
+							<br />
+						</h:outputLabel>
+
+						<h:outputLabel value="Prénom :"></h:outputLabel>
+						<h:inputText value="#{clientBean.prenom}" />
+						<h:outputLabel>
+							<br />
+						</h:outputLabel>
+
+						<h:outputLabel value="Login : ">
+							<h:outputLabel style="FONT-SIZE: small; color: red;">*</h:outputLabel>
+						</h:outputLabel>
+						<h:inputText value="#{clientBean.login}" id="loginid" />
+						<h:outputLabel>
+							<h:message for="loginid"
+								style="FONT-SIZE: small;FONT-STYLE: italic; color: red;" />
+						</h:outputLabel>
+
+						<h:outputLabel value="Mot De Passe : ">
+							<h:outputLabel style="FONT-SIZE: small; color: red;">*</h:outputLabel>
+						</h:outputLabel>
+						<h:inputSecret value="#{clientBean.mdp}" id="motpid" />
+						<h:outputLabel>
+							<h:message for="motpid"
+								style="FONT-SIZE: small;FONT-STYLE: italic; color: red;" />
+						</h:outputLabel>
+
+						<h:outputLabel value="E-mail : "></h:outputLabel>
+						<h:inputText value="#{clientBean.email}" />
+						<h:outputLabel>
+							<br />
+						</h:outputLabel>
+
+						<h:outputLabel value="Téléphone : "></h:outputLabel>
+						<h:inputText value="#{clientBean.tel}" />
+						<h:outputLabel>
+							<br />
+						</h:outputLabel>
+						<h:outputLabel value="Téléphone 2 : "></h:outputLabel>
+						<h:inputText value="#{clientBean.tel2}" />
+						<h:outputLabel>
+							<br />
+						</h:outputLabel>
+
+						<h:outputLabel value="Adresse :"></h:outputLabel>
+						<h:inputText value="#{utilisateurBean.adresse}"  />
+						<h:outputLabel>
+							<br />
+						</h:outputLabel>
+						<h:outputLabel value="Raison social : "></h:outputLabel>
+						<h:inputText value="#{clientBean.raisonSocial}" />
+						<h:outputLabel>
+							<br />
+						</h:outputLabel>
+						<h:outputLabel value="Fax : "></h:outputLabel>
+						<h:inputText value="#{clientBean.fax}" />
+						<h:outputLabel>
+							<br />
+						</h:outputLabel>
+						<h:outputLabel value="Ville :"></h:outputLabel>
+						<h:selectOneMenu id="ville"  value="#{clientBean.nomVille}">
+						<f:selectItem itemValue="Tunis" itemLabel="Tunis"/>
+						<f:selectItem itemValue="Ariana" itemLabel="Ariana"/>
+						<f:selectItem itemValue="Beja" itemLabel="Beja"/>
+						<f:selectItem itemValue="Ben Arous" itemLabel="Ben Arous"/>
+						<f:selectItem itemValue="Bizerte" itemLabel="Bizerte"/>
+						<f:selectItem itemValue="Gabes" itemLabel="Gabes"/>
+						<f:selectItem itemValue="Gafsa" itemLabel="Gafsa"/>
+						<f:selectItem itemValue="Jandouba" itemLabel="Jandouba"/>
+						<f:selectItem itemValue="Kairouan" itemLabel="Kairouan"/>
+						<f:selectItem itemValue="Kasserine" itemLabel="Kasserine"/>
+						<f:selectItem itemValue="Kébili" itemLabel="Kébili"/>
+						<f:selectItem itemValue="Le Kef" itemLabel="Le Kef"/>
+						<f:selectItem itemValue="Mahdia" itemLabel="Mahdia"/>
+						<f:selectItem itemValue="La Manouba" itemLabel="La Manouba"/>
+						<f:selectItem itemValue="Mednine" itemLabel="Mednine"/>
+						<f:selectItem itemValue="Monastir" itemLabel="Monastir"/>
+						<f:selectItem itemValue="Nabeul" itemLabel="Nabeul"/>
+						<f:selectItem itemValue="Sfax" itemLabel="Sfax"/>
+						<f:selectItem itemValue="Sidi Bouzid" itemLabel="Sidi Bouzid"/>
+						<f:selectItem itemValue="Siliana" itemLabel="Siliana"/>
+						<f:selectItem itemValue="Sousse" itemLabel="Sousse"/>
+						<f:selectItem itemValue="Tataouine" itemLabel="Tataouine"/>
+						<f:selectItem itemValue="Tozeur" itemLabel="Tozeur"/>
+						<f:selectItem itemValue="Zaghouan" itemLabel="Zaghouan"/> 
+						</h:selectOneMenu>
+						<h:outputLabel>
+							<br />
+						</h:outputLabel>
+						<h:outputLabel value="Validité : "></h:outputLabel>
+						<h:inputText value="#{clientBean.validite}" />
+
+						<h:outputLabel>
+							<br />
+						</h:outputLabel>
+						<h:outputLabel>
+							<br />
+						</h:outputLabel>
+						<h:outputLabel>
+							<br />
+						</h:outputLabel>
+						<h:outputLabel>
+							<br />
+						</h:outputLabel>
+						<p:commandButton value="Ajouter"  actionListener="#{clientBean.ajouter}" action="GestionClient" />
+						<p:commandButton value="Annuler" action="GestionClient" />
+
+					</h:panelGrid>
+				</h:form>
+			</p:fieldset>
+		</div>
+
+	</ui:define>
+
+</ui:composition>
+</html>

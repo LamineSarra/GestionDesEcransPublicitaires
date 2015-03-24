@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="../templates/temp.xhtml">
+
+	<ui:define name="body">
+		<div align="center">
+			<p:fieldset legend="Ajout Message" id="fieldajout"
+				style="width:50%;FONT-SIZE: small;">
+				<br />
+				<h:form id="formgestionid" style="FONT-SIZE: small;">
+					<h:panelGrid columns="3">
+
+
+						<h:outputLabel value="Nom du message : ">
+							<h:outputLabel style="FONT-SIZE: small; color: red;">*</h:outputLabel>
+						</h:outputLabel>
+						<h:inputText value="#{messageBean.nomMessage}" id="nomid" />
+						<h:outputLabel>
+							<h:message for="nomid"
+								style="FONT-SIZE: small;FONT-STYLE: italic; color: red;" />
+						</h:outputLabel>
+						<h:outputLabel value="URL du message : ">
+							<h:outputLabel style="FONT-SIZE: small; color: red;">*</h:outputLabel>
+						</h:outputLabel>
+						<h:inputText value="#{messageBean.url}" id="urlid" />
+						<h:outputLabel>
+							<h:message for="urlid"
+								style="FONT-SIZE: small;FONT-STYLE: italic; color: red;" />
+						</h:outputLabel>
+						
+						<h:outputLabel value="Categorie du message : ">
+							<h:outputLabel style="FONT-SIZE: small; color: red;">*</h:outputLabel>
+						</h:outputLabel>
+						<h:inputText value="#{messageBean.nomCategorie}" id="categorieid" />
+						<h:outputLabel>
+							<h:message for="categorieid"
+								style="FONT-SIZE: small;FONT-STYLE: italic; color: red;" />
+						</h:outputLabel>
+						
+						<h:outputLabel value="Adresse de l'écran: ">
+							<h:outputLabel style="FONT-SIZE: small; color: red;">*</h:outputLabel>
+						</h:outputLabel>
+						<h:inputText value="#{messageBean.adresseIP}" id="ipid" />
+						<h:outputLabel>
+							<h:message for="ipid"
+								style="FONT-SIZE: small;FONT-STYLE: italic; color: red;" />
+						</h:outputLabel>
+						
+						<p:commandButton value="Ajouter"  actionListener="#{messageBean.ajouter}" action="GestionMessage" update=":formgestionid"/>
+						<p:commandButton value="Annuler" action="GestionMessage" />
+					</h:panelGrid>
+				</h:form>
+			</p:fieldset>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11 avr. 2014 14:25:46 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.stage.pfe.persistance.PlanMsg" table="planmsg" catalog="bd_plv">
+        <id name="idPlanMsg" type="java.lang.Integer">
+            <column name="idPlanMsg" />
+            <generator class="increment" />
+        </id>
+        <property name="plageHoraire" type="string">
+            <column name="plageHoraire" length="45" />
+        </property>
+        </class>
+        </hibernate-mapping>
+        

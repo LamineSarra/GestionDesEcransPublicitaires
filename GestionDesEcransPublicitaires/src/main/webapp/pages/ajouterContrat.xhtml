@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="../templates/temp.xhtml">
+
+	<ui:define name="body">
+		<div align="center">
+			<p:fieldset legend="Ajout Contrat" id="fieldajout"
+				style="width:50%;FONT-SIZE: small;">
+				<br />
+				<h:form id="formgestionid" style="FONT-SIZE: small;">
+					<h:panelGrid columns="3">
+
+
+						<h:outputLabel value="Jour: ">
+							<h:outputLabel style="FONT-SIZE: small; color: red;">*</h:outputLabel>
+						</h:outputLabel>
+						<h:inputText value="#{contratBean.numJour}" id="jourid" />
+						<h:outputLabel>
+							<h:message for="jourid"
+								style="FONT-SIZE: small;FONT-STYLE: italic; color: red;" />
+						</h:outputLabel>
+						<h:outputLabel value="Heure: ">
+							<h:outputLabel style="FONT-SIZE: small; color: red;">*</h:outputLabel>
+						</h:outputLabel>
+						<h:inputText value="#{contratBean.heure}" id="heureid" />
+						<h:outputLabel>
+							<h:message for="heureid"
+								style="FONT-SIZE: small;FONT-STYLE: italic; color: red;" />
+						</h:outputLabel>
+						
+						
+						<p:commandButton value="Ajouter"  actionListener="#{contratBean.ajouter}" action="GestionContrat" update=":formgestionid"/>
+						<p:commandButton value="Annuler" action="GestionContrat" />
+					</h:panelGrid>
+				</h:form>
+			</p:fieldset>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="../templates/temp.xhtml">
+
+	<ui:define name="body">
+		<div align="center">
+			<p:fieldset legend="Modification Magasin" id="fieldmodif"
+				style="width:50%;FONT-SIZE: small;">
+				<br />
+				<h:form id="formgestionid" style="FONT-SIZE: small;">
+					<h:panelGrid columns="3">
+
+
+						<h:outputLabel value="Nom du magasin : ">
+							<h:outputLabel style="FONT-SIZE: small; color: red;">*</h:outputLabel>
+						</h:outputLabel>
+						<h:inputText value="#{magasinBean.nomMagasin}" id="nomid" />
+						<h:outputLabel>
+							<h:message for="nomid"
+								style="FONT-SIZE: small;FONT-STYLE: italic; color: red;" />
+						</h:outputLabel>
+						<h:outputLabel value="Adresse du magasin : ">
+							<h:outputLabel style="FONT-SIZE: small; color: red;">*</h:outputLabel>
+						</h:outputLabel>
+						<h:inputText value="#{magasinBean.adresseMagasin}" id="adresseid" />
+						<h:outputLabel>
+							<h:message for="adresseid"
+								style="FONT-SIZE: small;FONT-STYLE: italic; color: red;" />
+						</h:outputLabel>
+						<h:outputLabel value="Code du magasin : ">
+							<h:outputLabel style="FONT-SIZE: small; color: red;">*</h:outputLabel>
+						</h:outputLabel>
+						<h:inputText value="#{magasinBean.codeMagasin}" id="codeid" />
+						<h:outputLabel>
+							<h:message for="codeid"
+								style="FONT-SIZE: small;FONT-STYLE: italic; color: red;" />
+						</h:outputLabel>
+						<p:commandButton value="Modifier"  actionListener="#{magasinBean.modification}" action="GestionMagasin" update=":formgestionid"/>
+						<p:commandButton value="Annuler" action="GestionMagasin" />
+					</h:panelGrid>
+				</h:form>
+			</p:fieldset>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>
